@@ -3,7 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 
-# DO NOT UPDATE BIOS!!!!!!!!!! you need to be on the older bios to undervolt your pc properly!
+# DO NOT UPDATE BIOS!!!!!!!!!! you need to be on the older bios to undervolt your pc properly! do *NOT* update!!!!!
 
 { config, pkgs, lib, ... }:
 
