@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+
+
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -21,6 +25,12 @@
       modules = [
         ./hardware-configuration.nix
         ./configuration.nix
+
+
+
+
+
+
 
         # 홈 매니저 모듈 합체
         home-manager.nixosModules.home-manager

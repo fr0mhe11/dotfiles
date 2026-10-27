@@ -189,9 +189,28 @@ i18n.supportedLocales = [
   services.thermald.enable = false;
 
 
+    # [패치] nixpkgs 오버레이로 throttled 패키지에 0x3e34(i7-8565U) 호스트 브리지 지원 추가
+  nixpkgs.overlays = [
+    (final: prev: {
+      throttled = prev.throttled.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          sed -i 's/MCHBAR_ADDRESS_MASKS_BY_PCI_DEVICE.get(device_id)/MCHBAR_ADDRESS_MASKS_BY_PCI_DEVICE.get(device_id, MCHBAR_ADDRESS_MASKS_BY_PCI_DEVICE.get(0x9b61))/g' throttled.py
+        '';
+      });
+    })
+  ];
+
+
+
+
+
   # throttled: 정확한 키 이름(CORE, CACHE 등) 및 Sysfs 경로 적용
   services.throttled = {
     enable = true;
+
+
+
+
     extraConfig = ''
       [GENERAL]
       Enabled: True
