@@ -425,6 +425,10 @@ i18n.supportedLocales = [
 
     # Optionally enable xserver
     # xserver.enable = true;
+
+
+
+
   };
 
 environment.plasma6.excludePackages = with pkgs.kdePackages; [

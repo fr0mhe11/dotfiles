@@ -11,6 +11,7 @@
     #brave-origin
     wget
     kdePackages.kate  # [추가] KDE 순정 에디터 (내장 Git GUI 포함)
+    obsidian
   ];
 
   # [추가] Git 설치 및 내 이름표 자동 설정
