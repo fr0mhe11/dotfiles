@@ -370,17 +370,34 @@ i18n.supportedLocales = [
   #   ];
   # };
 
-  # 한글 깨짐 방지 폰트 및 코딩용 너드 폰트
-  fonts.packages = with pkgs; [
-    pretendard
-    noto-fonts-cjk-sans
-    d2coding
 
-    # 최신 규격 너드 폰트
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.symbols-only
-  ];
+# =========================================================================
+  # 폰트 및 Fontconfig 설정
+  # =========================================================================
+  fonts = {
+    # 폰트를 /run/current-system/sw/share/X11/fonts 에 링크하여 Electron/FHS 앱 호환성 확보
+    fontDir.enable = true;
+
+    # fontconfig 활성화 및 기본 폰트 패키지 포함
+    enableDefaultPackages = true;
+    fontconfig = {
+      enable = true;
+      cache32Bit = true;
+    };
+
+    # 한글 깨짐 방지 폰트 및 코딩용 너드 폰트
+    packages = with pkgs; [
+      pretendard
+      noto-fonts-cjk-sans
+      d2coding
+      sarasa-gothic
+
+      # 최신 규격 너드 폰트
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.symbols-only
+    ];
+  };
 
   # =========================================================================
   # gnome
